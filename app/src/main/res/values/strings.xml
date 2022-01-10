@@ -23,4 +23,10 @@
     <string name="invalid_update_uri">Invalid update Uri:</string>
     <string name="invalid_delete_uri">Invalid delete Uri:</string>
     <string name="insert_failed">Insert failed: %s</string>
+
+    <string name="hint_name_required">Usuario</string>
+    <string name="hint_passwd_Required">Contraseña</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+
 </resources>
