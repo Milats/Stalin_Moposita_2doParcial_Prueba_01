@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:name="com.aperez.apps.data.DatabaseContentProvider"
+            android:authorities="com.aperez.apps.data"
+            android:enabled="true"
+            android:exported="false" />
         <activity
             android:name="com.aperez.apps.androidfunwithflags.MainActivity"
             android:label="@string/app_name"
