@@ -33,7 +33,7 @@
             android:name="com.aperez.apps.login.SIMPLogin"
             android:label="Login"
             android:theme="@style/AppTheme.NoActionBar"
-
+            android:noHistory="true"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

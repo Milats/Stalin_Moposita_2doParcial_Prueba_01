@@ -72,9 +72,9 @@ public class SIMPLogin extends AppCompatActivity
         //String consulta = "SELECT Codigo, Nombre, Apellido, Correo FROM Clientes ORDER BY Codigo";
         //Indices
         //Importante de dejar espacios entre FROM CLIENTES WHERE ETC...
-        String consulta = "SELECT name, passwd " +
+        String consulta = "SELECT name " +
                 "FROM contacts " +
-                "WHERE name = '" + user + "'" + " AND " + "'" + passwd + "'";
+                "WHERE name = '" + user + "'" + " AND passwd = '" + passwd + "'";
 
         Cursor cursor = sql.rawQuery(consulta, null);
         //Name cicle
