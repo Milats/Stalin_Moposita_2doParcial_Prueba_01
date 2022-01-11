@@ -40,12 +40,7 @@ public class SIMPLogin extends AppCompatActivity
 
     }
 
-    public interface SIMPLoginListener{
-        void onAddEditCompleted(Uri contactUri);
-    }
     private static final int CONTACT_LOADER = 0;
-    private SIMPLoginListener listener;
-    private Uri contactUri;
     private EditText SIMPuser;
     private EditText SIMPpasswd;
     private FrameLayout SIMPfL;
@@ -57,36 +52,28 @@ public class SIMPLogin extends AppCompatActivity
         SIMPpasswd = (EditText) findViewById(R.id.SIMPpaswwdEditText);
         SIMPuser = (EditText) findViewById(R.id.SIMPuserEditText);
         SIMPfL = (FrameLayout) findViewById(R.id.frameLyout);
-
     }
 
     public void onClicLogin(View view) {
-        DatabaseHelper dbHelper = new DatabaseHelper(this, "AddressBook.db", null, 1);
-        //Open DB only to read
-        SQLiteDatabase sql = dbHelper.getReadableDatabase();
+        DatabaseHelper SIMPdbHelper = new DatabaseHelper(this, "AddressBook.db", null, 1);
+        SQLiteDatabase SIMPsql = SIMPdbHelper.getReadableDatabase();
 
-        String user = SIMPuser.getText().toString();
-        String passwd = SIMPpasswd.getText().toString();
-
-        //String consulta = "SELECT * FROM Clientes";
-        //String consulta = "SELECT Codigo, Nombre, Apellido, Correo FROM Clientes ORDER BY Codigo";
-        //Indices
-        //Importante de dejar espacios entre FROM CLIENTES WHERE ETC...
-        String consulta = "SELECT name " +
+        String SIMPusername = SIMPuser.getText().toString();
+        String SIMPpasswdd = SIMPpasswd.getText().toString();
+        String SIMPconsulta = "SELECT name " +
                 "FROM contacts " +
-                "WHERE name = '" + user + "'" + " AND passwd = '" + passwd + "'";
+                "WHERE name = '" + SIMPusername + "'" + " AND passwd = '" + SIMPpasswdd + "'";
 
-        Cursor cursor = sql.rawQuery(consulta, null);
-        //Name cicle
+        Cursor cursor = SIMPsql.rawQuery(SIMPconsulta, null);
 
         if (cursor.moveToFirst()){
             Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-            Intent mainGame = new Intent(this, MainActivity.class);
-            startActivity(mainGame);
+            Intent SIMPmainGame = new Intent(this, MainActivity.class);
+            startActivity(SIMPmainGame);
         } else {
             Toast.makeText(this, "Usuario y/o contraseñas incorrectos", Toast.LENGTH_SHORT).show();
         }
-        sql.close();
+        SIMPsql.close();
     }
 
     public void onClicRegister(View view) {
@@ -102,6 +89,5 @@ public class SIMPLogin extends AppCompatActivity
             } else {
                 Snackbar.make(SIMPfL, R.string.contact_not_added, Snackbar.LENGTH_LONG).show();
             }
-
     }
 }
