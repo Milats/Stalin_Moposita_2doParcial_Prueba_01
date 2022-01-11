@@ -12,7 +12,7 @@ import com.aperez.apps.data.DatabaseDescription.Contact;
 
 public class DatabaseContentProvider extends ContentProvider {
 
-    private AddressBookDatabaseHelper dbHelper;
+    private DatabaseHelper dbHelper;
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     private static final int ONE_CONTACT = 1;
     private static final int CONTACTS = 2;
@@ -24,7 +24,7 @@ public class DatabaseContentProvider extends ContentProvider {
     }
     @Override
     public boolean onCreate(){
-        dbHelper = new AddressBookDatabaseHelper(getContext());
+        dbHelper = new DatabaseHelper(getContext());
         return true;
     }
     @Override

@@ -1,12 +1,11 @@
 package com.aperez.apps.data;
 
 import android.content.Context;
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.aperez.apps.data.DatabaseDescription.Contact;
 
-class AddressBookDatabaseHelper extends SQLiteOpenHelper {
+class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "AddressBook.db";
     private static final int DATABASE_VERSION = 1;
     public final String CREATE_CONTACTS_TABLE =
@@ -14,7 +13,7 @@ class AddressBookDatabaseHelper extends SQLiteOpenHelper {
                     Contact._ID + " integer primary key, " +
                     Contact.COLUMN_NAME + " TEXT);";
 
-    public AddressBookDatabaseHelper(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     @Override

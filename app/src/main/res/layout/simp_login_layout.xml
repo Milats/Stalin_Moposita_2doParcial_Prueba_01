@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/frameLyout"
+    tools:context="com.aperez.apps.login.SIMPLogin">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,39 +17,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.TextInputLayout
+
+        <EditText
+            android:id="@+id/SIMPuserEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/hint_name_required" />
 
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_name_required"
-                android:inputType="textCapWords|textPersonName"
-                android:id="@+id/editText"
-                android:imeOptions="actionNext"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
+        <EditText
+            android:id="@+id/SIMPpaswwdEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText1"
-                android:hint="@string/hint_passwd_Required"
-                android:inputType="phone"
-                android:imeOptions="actionNext"/>
-
-        </android.support.design.widget.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/hint_passwd_Required"/>
 
         <Button
             android:id="@+id/SIMPloginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClicLogin"
             android:text="@string/login_button" />
 
         <Button
@@ -55,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/register_button"/>
+            android:onClick="onClicRegister"
+            android:text="@string/register_button" />
 
     </LinearLayout>
     </ScrollView>
